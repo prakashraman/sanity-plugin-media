@@ -61,7 +61,8 @@ const foldersSlice = createSlice({
             ] {
               _id,
               _type,
-              name
+              name,
+              parent->{_id}
             } | order(name.current asc),
           }
         `

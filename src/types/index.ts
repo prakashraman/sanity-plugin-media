@@ -352,4 +352,11 @@ export type Folder = SanityDocument & {
   name: {
     current: string
   }
+  parent: {
+    _id: string | null
+  }
+}
+
+export type FolderTreeItem = Folder & {
+  children: FolderTreeItem[] // Array of child TreeItems
 }

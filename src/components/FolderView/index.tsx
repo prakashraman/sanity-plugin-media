@@ -6,6 +6,7 @@ import {selectAssetsPickedLength} from '../../modules/assets'
 import TagViewHeader from '../TagViewHeader'
 import {selectFolders} from '../../modules/folders'
 import Folder from '../Folder'
+import {buildTree} from './utils'
 
 const FolderView = () => {
   const numPickedAssets = useTypedSelector(selectAssetsPickedLength)
@@ -15,6 +16,8 @@ const FolderView = () => {
   const fetchComplete = fetchCount !== -1
   const hasFolders = !fetching && folders?.length > 0
   const hasPicked = !!(numPickedAssets > 0)
+
+  const tree = buildTree(folders)
 
   return (
     <Flex direction="column">
@@ -28,10 +31,7 @@ const FolderView = () => {
         </Box>
       )}
 
-      {hasFolders &&
-        folders.map(folder => (
-          <Folder key={folder._id} _id={folder._id} name={folder.name.current} />
-        ))}
+      {hasFolders && tree.map(folder => <Folder key={folder._id} item={folder} />)}
     </Flex>
   )
 }
