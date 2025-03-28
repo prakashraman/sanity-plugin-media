@@ -3,6 +3,7 @@ import {Box} from '@sanity/ui'
 import {TAGS_PANEL_WIDTH} from '../../constants'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import TagView from '../TagView'
+import FolderView from '../FolderView'
 
 const TagsPanel = () => {
   const tagsPanelVisible = useTypedSelector(state => state.tags.panelVisible)
@@ -31,6 +32,7 @@ const TagsPanel = () => {
           width: '100%'
         }}
       >
+        <FolderView />
         <TagView />
       </Box>
     </Box>

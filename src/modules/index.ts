@@ -59,6 +59,8 @@ import uploadsReducer, {
   uploadsCompleteQueueEpic
 } from './uploads'
 
+import foldersReducers from './folders'
+
 export const rootEpic = combineEpics(
   assetsDeleteEpic,
   assetsFetchEpic,
@@ -110,7 +112,9 @@ const reducers = {
   search: searchReducer,
   selected: selectedReducer,
   tags: tagsReducer,
-  uploads: uploadsReducer
+  uploads: uploadsReducer,
+
+  folders: foldersReducers
 }
 
 type ReducersMapObject = typeof reducers
