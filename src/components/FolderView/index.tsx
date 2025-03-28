@@ -3,7 +3,6 @@ import {Box, Flex, Text} from '@sanity/ui'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import {selectAssetsPickedLength} from '../../modules/assets'
 
-import TagsVirtualized from '../TagsVirtualized'
 import TagViewHeader from '../TagViewHeader'
 import {selectFolders} from '../../modules/folders'
 import Folder from '../Folder'
@@ -29,7 +28,10 @@ const FolderView = () => {
         </Box>
       )}
 
-      {hasFolders && folders.map(folder => <Folder key={folder.id} folder={folder} />)}
+      {hasFolders &&
+        folders.map(folder => (
+          <Folder key={folder._id} _id={folder._id} name={folder.name.current} />
+        ))}
     </Flex>
   )
 }

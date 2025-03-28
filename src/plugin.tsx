@@ -3,6 +3,7 @@ import {ImageIcon} from '@sanity/icons'
 import FormBuilderTool from './components/FormBuilderTool'
 import Tool from './components/Tool'
 import mediaTag from './schemas/tag'
+import mediaFolder from './schemas/folder'
 import type {MediaToolOptions} from './types'
 import {ToolOptionsProvider} from './contexts/ToolOptionsContext'
 
@@ -46,7 +47,7 @@ export const media = definePlugin<MediaToolOptions | void>(options => ({
     }
   },
   schema: {
-    types: [mediaTag]
+    types: [mediaTag, mediaFolder]
   },
   tools: prev => {
     return [...prev, tool]

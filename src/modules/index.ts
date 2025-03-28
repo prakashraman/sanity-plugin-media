@@ -59,7 +59,7 @@ import uploadsReducer, {
   uploadsCompleteQueueEpic
 } from './uploads'
 
-import foldersReducers from './folders'
+import foldersReducers, {foldersFetchEpic} from './folders'
 
 export const rootEpic = combineEpics(
   assetsDeleteEpic,
@@ -101,7 +101,10 @@ export const rootEpic = combineEpics(
   uploadsAssetStartEpic,
   uploadsAssetUploadEpic,
   uploadsCheckRequestEpic,
-  uploadsCompleteQueueEpic
+  uploadsCompleteQueueEpic,
+
+  // folders
+  foldersFetchEpic
 )
 
 const reducers = {
@@ -113,7 +116,6 @@ const reducers = {
   selected: selectedReducer,
   tags: tagsReducer,
   uploads: uploadsReducer,
-
   folders: foldersReducers
 }
 

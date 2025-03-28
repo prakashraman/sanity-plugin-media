@@ -10,6 +10,7 @@ import {AssetBrowserDispatchProvider} from '../../contexts/AssetSourceDispatchCo
 import useVersionedClient from '../../hooks/useVersionedClient'
 import {assetsActions} from '../../modules/assets'
 import {tagsActions} from '../../modules/tags'
+import {foldersActions} from '../../modules/folders'
 import GlobalStyle from '../../styled/GlobalStyles'
 import Controls from '../Controls'
 import DebugControls from '../DebugControls'
@@ -73,6 +74,9 @@ const BrowserContent = ({onClose}: {onClose?: AssetSourceComponentProps['onClose
 
     // Fetch all tags
     dispatch(tagsActions.fetchRequest())
+
+    // Fetch all folders
+    dispatch(foldersActions.fetchRequest())
 
     // Listen for asset and tag changes in published documents.
     // Remember that Sanity listeners ignore joins, order clauses and projections!

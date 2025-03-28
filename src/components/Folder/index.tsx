@@ -1,5 +1,4 @@
 import {Box, Text} from '@sanity/ui'
-import type {Folder} from '../../modules/folders'
 import {styled} from 'styled-components'
 
 const FolderContainer = styled(Box)`
@@ -7,14 +6,15 @@ const FolderContainer = styled(Box)`
 `
 
 type Props = {
-  folder: Folder
+  _id: string
+  name: string
 }
 
-const Folder = ({folder}: Props) => {
+const Folder = ({name}: Props) => {
   return (
     <FolderContainer>
       <Text muted size={1} textOverflow="ellipsis">
-        {folder.name}
+        {name}
       </Text>
     </FolderContainer>
   )

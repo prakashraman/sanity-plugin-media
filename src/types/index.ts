@@ -347,3 +347,9 @@ export type UploadItem = {
 export type WithId<T extends SearchFacetInputProps> = T & {
   id: string
 }
+
+export type Folder = SanityDocument & {
+  name: {
+    current: string
+  }
+}
